@@ -12,9 +12,7 @@ app.use(function(req, res, next) {
 });
 
 var bodyParser = require("body-parser");
-//const bodyParser = require('body-parser')
 app.use(bodyParser.json());
-
 
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
