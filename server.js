@@ -29,7 +29,7 @@ MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, (err
     }
 
     /* Liste des produits */
-    app.get("/produits", (req, res) => {
+    app.get("/p", (req, res) => {
         console.log("/produits");
         try {
             db.collection("produits").find().sort({nom: 1}).toArray((err, documents) => {
@@ -267,7 +267,6 @@ MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, (err
 
 
 });
-
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('public'));
