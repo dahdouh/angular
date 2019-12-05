@@ -12,7 +12,7 @@ app.use(function(req, res, next) {
 
 var bodyParser = require("body-parser");
 //const bodyParser = require('body-parser')
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 
 const MongoClient = require('mongodb').MongoClient;
@@ -141,7 +141,7 @@ MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, (err
 
 
     // repertoire des images
-    const DIR = './superventes/src/assets/img/';
+    const DIR = './public/assets/img/';
 
     // paramétrage de Multer File upload
     const storage = multer.diskStorage({
@@ -268,12 +268,12 @@ MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, (err
 
 });
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('public'));
-}
+// Set Static Folder
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('*', (request, response) => {
-    response.sendFile(path.join(__dirname, 'public', 'index.html'));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/index.html'));
 });
+
 
 app.listen(port);
