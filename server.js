@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
 const url = "mongodb+srv://karim:karim@cluster0-cqups.mongodb.net/superventes?retryWrites=true&w=majority";
-const port = process.env.PORT || 8888;
+const port = process.env.PORT || 5000;
 
 MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, (err, client) => {
      let db = client.db("superventes");
@@ -279,5 +279,5 @@ app.get('*', (request, response) => {
 });
 
 app.listen(port, function() {
-    console.log("Serveur s'exécute sur le port: " + port);
+    console.log("Serveur s'exécute sur le port :" + port);
 });
