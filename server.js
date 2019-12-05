@@ -21,8 +21,9 @@ const url = "mongodb+srv://karim:karim@cluster0-cqups.mongodb.net/test?retryWrit
 const port = process.env.PORT || 8888;
 
 MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, (err, client) => {
-    let db = client.db("SUPERVENTES");
+     let db = client.db("superventes");
 
+     console.log(" Atlas MongoDB connected");
 
     /* Liste des produits */
     app.get("/produits", (req, res) => {
