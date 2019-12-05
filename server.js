@@ -270,6 +270,10 @@ MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, (err
 
 });
 
+app.get('/', function(req, res){
+    res.redirect('/produits');
+});
+
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('public'));
 }
