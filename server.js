@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
-const url = "mongodb+srv://karim:karim@cluster0-cqups.mongodb.net/superventes?retryWrites=true&w=majority";
+const url = "mongodb://karim:karim@cluster0-shard-00-00-cqups.mongodb.net:27017,cluster0-shard-00-01-cqups.mongodb.net:27017,cluster0-shard-00-02-cqups.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority";
 const port = process.env.PORT || 5000;
 
 MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, (err, client) => {
