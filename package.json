@@ -10,8 +10,14 @@
   },
   "devDependencies": {},
   "scripts": {
+    "ng": "ng",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot --prod"
   },
   "author": "karim dahdouh",
   "license": "ISC"

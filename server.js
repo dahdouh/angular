@@ -29,7 +29,7 @@ MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, (err
     }
 
     /* Liste des produits */
-    app.get("/p", (req, res) => {
+    app.get("/produits", (req, res) => {
         console.log("/produits");
         try {
             db.collection("produits").find().sort({nom: 1}).toArray((err, documents) => {
