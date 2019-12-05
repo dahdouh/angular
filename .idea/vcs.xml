@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/MEAN" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/guarded-scrubland-09023" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/heroku-superventes" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/heroku-superventes-angular" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/superventes" vcs="Git" />

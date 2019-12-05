@@ -264,4 +264,12 @@ MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, (err
 
 });
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('superventes/dist'));
+}
+
+app.get('*', (request, response) => {
+    response.sendFile(path.join(__dirname, 'superventes/dist', 'index.html'));
+});
+
 app.listen(port);
