@@ -17,7 +17,7 @@ app.use(bodyParser.json())
 
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
-const url = "mongodb://localhost:27017";
+const url = "mongodb+srv://karim:karim@cluster0-cqups.mongodb.net/test?retryWrites=true&w=majority";
 const port = process.env.PORT || 8888;
 
 MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, (err, client) => {
