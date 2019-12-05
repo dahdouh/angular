@@ -1,0 +1,43 @@
+<div class="card ">
+  <div class="card-header">
+    Produits
+  </div>
+  <br/>
+  <div class="col-12 float-sm-left" *ngIf="currentUser">
+      <a routerLink="/produits/add"  class="btn btn-primary btn-lg pull-right" role="button" aria-disabled="true">
+        <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+      </a>
+  </div>
+  <div class="card-body">
+    <div class="row">
+
+      <div *ngIf="produits.length == 0" class="col-12 alert alert-info alert-dismissible" role="alert">
+        <strong>Hoop!</strong> Aucun produit pour l'instant. Merci.
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4" *ngFor="let p of produits">
+        <div class="card h-100">
+          <img class="card-img-top" src="/assets/img/{{p.image}}" class="img-thumbnail" alt="{{ p.nom }}">
+          <div class="card-body">
+            <h4 class="card-title">
+
+              {{p.nom}}
+            </h4>
+            <h5>{{p.prix}} € </h5>
+            <p class="card-text"> {{p.type}} </p>
+          </div>
+          <div class="card-footer" *ngIf="currentUser">
+            <form [formGroup]="panierForm" (ngSubmit)="addProduitPanier(p)">
+              <div class="form-group text-center">
+                <input type="number" id="tentacles" name="tentacles" min="0" max="100"  formControlName="quantite">  &nbsp;
+                <button type="submit" class="btn btn-success" >
+                  <i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

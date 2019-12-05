@@ -1,0 +1,36 @@
+
+<div class="card ">
+  <div class="card-header">
+    Connexion
+  </div>
+  <div class="card-body">
+    <div class="row">
+
+
+      <div *ngIf="error != ''" class="col-12 alert alert-danger alert-dismissible" role="alert">
+        <strong>Hoop!</strong> {{ error }}
+      </div>
+
+
+
+      <div class="col-12">
+          <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input class="form-control" type="text" placeholder="email" formControlName="email">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input class="form-control" type="password" placeholder="password" formControlName="password">
+            </div>
+            <button type="submit" [disabled]="userForm.invalid" class="btn btn-primary">Se connecter</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

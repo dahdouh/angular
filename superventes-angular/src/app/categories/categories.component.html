@@ -1,0 +1,16 @@
+<div class="col-lg-12" >
+  <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+    <div class="card-header">
+      <h3>Catégories</h3>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let c of categories">
+        <a routerLink = "/categories/{{ c.nom }}"> {{ c.nom }}</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+

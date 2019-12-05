@@ -1,0 +1,50 @@
+<div class="card text-center" *ngIf="panier.commandProduits.length>0">
+  <div class="card-header">
+    Panier
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">Produit</th>
+        <th scope="col">Prix</th>
+        <th scope="col">Quantité</th>
+        <th scope="col">Modifier quantité</th>
+        <th scope="col">Supprimer</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let p of panier.commandProduits; let i=index;">
+        <td scope="row">{{p.produit.nom }}</td>
+        <td scope="row">{{p.produit.prix }}</td>
+        <td>{{p.quantite}}</td>
+        <td>
+          <form [formGroup]="panierForm" (ngSubmit)="onModifyQuantityPanier(p.produit)">
+            <div class="form-group">
+              <input type="number" id="tentacles" name="tentacles" min="0" max="100"  formControlName="quantite"> &nbsp;
+              <button type="submit" class="btn btn-primary" >
+                <i class="fa fa-pencil fa-1x" aria-hidden="true"></i>
+              </button>
+            </div>
+          </form>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="onRemoveCommand(i)">
+            <i class="fa fa-trash-o fa-1x" aria-hidden="true"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer text-muted">
+    <h4 style="color: black; font-size: 15px;">Total: {{panierService.getTotal()}} € </h4>
+    <button type="button" class="btn btn-warning" (click)="onValidateCommand(panier)">
+      <i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"></i> &nbsp; Valider Commande
+    </button>
+  </div>
+</div>
+<br/>
+
+
+

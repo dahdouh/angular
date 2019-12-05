@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+  <a class="navbar-brand" routerLink="categories">SUPERVENTES</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <!--<li routerLinkActive="active" class="nav-item">
+        <a class="nav-link" [routerLink]="[{ outlets: { 'categories-outlet': ['categories'] } }]">Categories</a>
+      </li>
+      -->
+
+      <li routerLinkActive="active" class="nav-item">
+        <!-- <a class="nav-link" routerLink="categories">Categories</a> -->
+      </li>
+
+      <li routerLinkActive="active" class="nav-item">
+        <a class="nav-link" routerLink="produits">Produits</a>
+      </li>
+      <li routerLinkActive="active" class="nav-item" >
+        <a routerLink="produits/search" class="nav-link">Chercher</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <a class="nav-link" [routerLink]="[{ outlets: { 'panier-outlet': ['panier'] } }]"> {{ panierService.panier.commandProduits.length }} <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i> Panier</a>
+    </span>
+    <span class="navbar-text">
+      <a class="nav-link" routerLink="inscription" *ngIf="!currentUser">Inscription</a>
+    </span>
+    <span class="navbar-text">
+      <a class="nav-link" routerLink="connexion" *ngIf="!currentUser" >Connexion</a>
+    </span>
+    <span class="navbar-text">
+      <a class="nav-link" routerLink="inscription" *ngIf="currentUser" (click)="logout()" > {{ currentUser.nom }} <i class="fa fa-sign-out fa-3x" aria-hidden="true"></i> </a>
+    </span>
+  </div>
+</nav>
+

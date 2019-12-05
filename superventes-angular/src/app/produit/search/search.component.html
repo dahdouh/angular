@@ -1,0 +1,49 @@
+<script src="../../../../../server.js"></script>
+<div class="card ">
+  <div class="card-header">
+    Produits
+  </div>
+  <div class="card-body">
+    <div class="row">
+
+      <div *ngIf="produitsSearch.length === 0" class="col-12 alert alert-info alert-dismissible" role="alert">
+        <strong>Hoop!</strong> Aucun produit trouvé. Veuillez chercher un autre produit.
+      </div>
+
+      <div class="col-lg-12 col-md-6 mb-4">
+        <form [formGroup]="searchForm" (ngSubmit)="onSearchProduit()">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Produit à chercher" formControlName="search">
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-outline-secondary">Chercher</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4" *ngFor="let p of produitsSearch">
+        <div class="card h-100">
+          <img class="card-img-top" src="/assets/img/{{p.image}}" class="img-thumbnail" alt="{{ p.nom }}">
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">{{p.nom}}</a>
+            </h4>
+            <h5>{{p.prix}} € </h5>
+            <p class="card-text"> {{p.type}} </p>
+          </div>
+          <div class="card-footer" *ngIf="currentUser">
+            <form [formGroup]="panierForm" (ngSubmit)="onAddProduitPanier(p)">
+              <div class="form-group text-center">
+                <input type="number" id="tentacles" name="tentacles" min="0" max="100"  formControlName="quantite">  &nbsp;
+                <button type="submit" class="btn btn-success" >
+                  <i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

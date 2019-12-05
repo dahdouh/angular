@@ -1,0 +1,77 @@
+<!--
+<main role="main" class="container">
+
+  <div class="row">
+    <div class="col-md-8">
+
+    </div>
+    <div class="col-md-8">
+      <router-outlet name="panier-outlet"></router-outlet>
+    </div>
+
+
+  </div>
+
+ </main>
+-->
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title> {{ title }}</title>
+
+</head>
+
+<body>
+
+<app-menu></app-menu>
+
+
+<!-- Page Content -->
+<div class="container">
+  <br/>  <br/>
+  <div class="row">
+
+    <div class="col-lg-3">
+      <app-categories></app-categories>
+    </div>
+
+    <div class="col-lg-9">
+      <router-outlet name="panier-outlet"></router-outlet>
+      <router-outlet></router-outlet>
+    </div>
+    <br/><br/>
+
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-2 bg-info fixed-bottom">
+  <div class="container">
+    <p class="m-0 text-center text-white"> Copyright &copy; Superventes  {{dateNow | date:'yyyy'}}</p>
+  </div>
+  <!-- /.container -->
+</footer>
+
+
+</body>
+
+</html>
+
