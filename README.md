@@ -44,11 +44,12 @@ Le client :
 
 5)	gestion d’un panier :
 
-•	ajout ou suppression d’un produit
+    •	ajout ou suppression d’un produit
 
-•	modification de la quantité d’un produit déjà commande
-•	validation de la commande : le panier est alors vide
+    •	modification de la quantité d’un produit déjà commande
+
+    •	validation de la commande : le panier est alors vide
 
 6)	recherche de produits par n’importe quelle combinaison de critères (nom, catégorie, prix...).
 
-==================================================================================
+Let's go
