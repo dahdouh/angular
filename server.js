@@ -1,6 +1,6 @@
 const express = require('express');
 let multer = require('multer');
-const path = require('path');
+//const path = require('path');
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -18,8 +18,8 @@ const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
 const url = "mongodb+srv://karim:karim@cluster0-cqups.mongodb.net/test?retryWrites=true&w=majority";
 
-const port = process.env.PORT || 5000;
-//app.set('port', process.env.PORT || 8888);
+//const port = process.env.PORT || 8888;
+app.set('port', process.env.PORT || 8888);
 
 MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, (err, client) => {
      let db = client.db("superventes");
@@ -248,6 +248,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-app.listen(port, function() {
-    console.log("Serveur s'exécute sur le port :" + port);
+app.listen(app.get('port'), function() {
+    console.log("Serveur s'exécute sur le port :" + app.get('port'));
 });
