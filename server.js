@@ -1,6 +1,6 @@
 const express = require('express');
 let multer = require('multer');
-//const path = require('path');
+const path = require('path');
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -34,9 +34,6 @@ MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, (err
         console.log("/produits");
         try {
             db.collection("produits").find().sort({nom: 1}).toArray((err, documents) => {
-                for(let p of documents) {
-                    console.log("###################################################### "+ p.nom);
-                }
                 res.end(JSON.stringify(documents));
             });
         } catch(e) {
