@@ -11,7 +11,7 @@ npm install --save body-parser
 Le projet est déployé sur Heroku sur le lien : 
 https://guarded-scrubland-09023.herokuapp.com/
 
-## Teste
+## Test
 pour se connecter à la plate-forme e-commerce utiliser les cordonnées suivantes:
     login: test@test
     password: testtest
