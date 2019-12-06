@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'superventes';
+  title = 'e-commerce MEAN - Karim Dahdouh';
   dateNow = new Date();
 
 }
