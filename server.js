@@ -16,8 +16,10 @@ app.use(bodyParser.json());
 
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
-const url = "mongodb://karim:karim@cluster0-shard-00-00-cqups.mongodb.net:27017,cluster0-shard-00-01-cqups.mongodb.net:27017,cluster0-shard-00-02-cqups.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority";
-const port = process.env.PORT || 5000;
+const url = "mongodb+srv://karim:karim@cluster0-cqups.mongodb.net/test?retryWrites=true&w=majority";
+
+//const port = process.env.PORT || 5000;
+app.set('port', process.env.PORT || 8888);
 
 MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, (err, client) => {
      let db = client.db("superventes");
@@ -193,35 +195,6 @@ MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, (err
         res.json(req.body);
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //Insert into panie
    app.post("/panier/add", (req, res, next) => {
         let panier = req.body;
@@ -274,10 +247,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('public'));
 }
 
-app.get('*', (request, response) => {
-    response.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
 
-app.listen(port, function() {
-    console.log("Serveur s'exécute sur le port :" + port);
+app.listen(app.get('port'), function() {
+    console.log("Serveur s'exécute sur le port :" + app.get('port'));
 });
