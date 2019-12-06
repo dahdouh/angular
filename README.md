@@ -1,14 +1,17 @@
 ## Installation
 npm install --save multer
+
 npm install --save express
+
 npm install --save mongodb
+
 npm install --save body-parser
 
-#deploiement:
+## Deploiement:
 Le projet est déployé sur Heroku sur le lien : 
 https://guarded-scrubland-09023.herokuapp.com/
 
-#Specification
+## Specification
 
 ==================================================================================
 
